@@ -1,0 +1,25 @@
+{% extends 'a1/base.html' %}
+{% block body_block %}
+
+<div class="jumbotron">
+  <h1>Please Login</h1>
+  <form action="{% url 'a1:user_login' %}" method="post" onsubmit="showName(Username.value,password.value)">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="Username" placeholder="Enter your Username here">
+
+    <label for="password">Password</label>
+    <input type="password" name="password">
+
+    <input type="submit" name="" value="Login">
+
+  </form>
+
+</div>
+<script type="text/javascript">
+  function showName(un,pw) {
+  alert("The form was about to be submitted "+un+"."+pw);
+}
+</script>
+
+{% endblock %}
